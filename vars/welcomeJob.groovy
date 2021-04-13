@@ -9,5 +9,14 @@ def call(Map config=[:]) {
         stage("Install") {
             sh "npm install"
         }
+        stage("Test") {
+            sh "npm test"
+        }
+
+        stage("Deploy") {
+            if (config.name == "tapas") {
+                sh "npm publish"
+            }
+        }
     }
 }
