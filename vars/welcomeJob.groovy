@@ -5,7 +5,7 @@ def call(Map config=[:]) {
     
     nodejs {
         git url: "https://github.com/tapasmishraarc/sample-nodejs"
-        tools {nodejs "nodejs"}
+        
         stage("Install") {
             sh "npm install"
         }
