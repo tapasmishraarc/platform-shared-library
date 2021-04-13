@@ -3,7 +3,7 @@ def call(Map config=[:]) {
     // Scripted Pipeline
     echo "Hello ${config.name}"
     
-    nodejs {
+    node {
         git url: "https://github.com/tapasmishraarc/sample-nodejs"
         
         stage("Install") {
