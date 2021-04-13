@@ -9,4 +9,5 @@ def call(Map config=[:]) {
         stage("Install") {
             sh "npm install"
         }
+    }
 }
