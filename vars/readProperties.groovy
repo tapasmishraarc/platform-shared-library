@@ -1,5 +1,5 @@
 def call(script) {
-  def properties_file_path = "${workspace}/" + "${script}/properties.yaml"
+  def properties_file_path = "${workspace}/" + "sample_nodejs/properties.yaml"
 def property = readYaml file: properties_file_path
 script.env.APP_NAME = property.APP_NAME
 script.env.MS_NAME = property.MS_NAME
