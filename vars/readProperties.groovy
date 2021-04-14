@@ -2,7 +2,7 @@ def call(script) {
 def properties_file_path = "${workspace}" + "@script/properties.yml"
 def property = readYaml file: properties_file_path
 script.env.APP_NAME = property.APP_NAME
-Script.env.MS_NAME = property.MS_NAME
+script.env.MS_NAME = property.MS_NAME
 script.env.BRANCH = property.BRANCH
 script.env.GIT_SOURCE_URL = property.GIT_SOURCE_URL
 script.env.GIT_CREDENTIALS = property.GIT_CREDENTIALS
