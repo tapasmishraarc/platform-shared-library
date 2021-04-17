@@ -1,5 +1,5 @@
 def call(String repoUrl = 'url') {
-  git url: "${config.repoUrl}"
+  git url: "${repoUrl}"
   def properties_file_path = "./properties.yml"
   def property = readYaml file: properties_file_path
   script.env.APP_NAME = property.APP_NAME
