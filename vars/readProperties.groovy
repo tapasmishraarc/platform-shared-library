@@ -1,4 +1,4 @@
-def call(String repoUrl = 'url') {
+def call(String repoUrl = 'url',script) {
   git url: "${repoUrl}"
   def properties_file_path = "./properties.yml"
   def property = readYaml file: properties_file_path
