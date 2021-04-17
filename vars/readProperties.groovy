@@ -1,5 +1,5 @@
-def call(script) {
-  git url: "https://github.com/tapasmishraarc/sample-nodejs.git"
+def call(String url) {
+  git url: ${url}
   def properties_file_path = "./properties.yml"
   def property = readYaml file: properties_file_path
   script.env.APP_NAME = property.APP_NAME
