@@ -1,5 +1,6 @@
 def call(script) {
-  def properties_file_path = "${workspace}" + "@script/properties.yml"
+  git url: "https://github.com/tapasmishraarc/sample-nodejs.git"
+  def properties_file_path = "./properties.yml"
   def property = readYaml file: properties_file_path
   script.env.APP_NAME = property.APP_NAME
   script.env.MS_NAME = property.MS_NAME
