@@ -17,7 +17,7 @@ def call(script) {
   script.env.DOCKER_REGISTRY = property.DOCKER_REGISTRY
   script.env.DOCKER_REPO = property.DOCKER_REPO
   script.env.mailrecipient = property.mailrecipient
-  script.env.EXPECTED_COVERAGE = property.EXPECTED_ COVERAGE
+  script.env.EXPECTED_COVERAGE = property.EXPECTED_COVERAGE
   script.env.techStack = property.techStack
   script.env.FAILED_STAGE = ""  
   script.env.IMAGE_TAG = (new Date()).format("yyMMddHHmm",TimeZone.getTimeZone('UTC'))
