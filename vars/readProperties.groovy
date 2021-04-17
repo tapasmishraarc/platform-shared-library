@@ -1,4 +1,4 @@
-def call(Map config=[:]) {
+def call(String repoUrl = 'url') {
   git url: "${config.repoUrl}"
   def properties_file_path = "./properties.yml"
   def property = readYaml file: properties_file_path
