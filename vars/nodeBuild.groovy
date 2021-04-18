@@ -1,4 +1,4 @@
-def call(Map config=[:]) {
+def call(Map config=[:],script) {
     // Any valid steps can be called from this code, just like in other
     // Scripted Pipeline
     echo "Hello ${config.name}"
@@ -9,8 +9,12 @@ def call(Map config=[:]) {
         stage("Install") {
             sh "npm install"
         }
+        if(script.env.UNIT_TESTING == 'True')
+        {
         stage("Test") {
             sh "npm test"
+            
+        }
         }
 
         stage("Deploy") {
