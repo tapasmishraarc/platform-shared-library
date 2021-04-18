@@ -9,6 +9,12 @@ def call(Map config=[:],script) {
         stage("Install") {
             sh "npm install"
         }
+        if(script.env.CODE_QUALITY == 'True')
+        {
+         stage("Code Quality Analysis") {
+             echo 'Code Quality Analysis'
+         }
+        }
         if(script.env.UNIT_TESTING == 'True')
         {
         stage("Test") {
