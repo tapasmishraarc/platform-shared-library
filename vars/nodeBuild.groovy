@@ -22,7 +22,18 @@ def call(Map config=[:],script) {
             
         }
         }
-
+         if(script.env.CODE_COVERAGE == 'True')
+        {
+         stage("Code Coverage") {
+             echo 'Code Coverage'
+         }
+        }
+         if(script.env.SECURITY_TESTING == 'True')
+        {
+         stage("Security Testing") {
+             echo 'Security Testing'
+         }
+        }
         stage("Deploy") {
             if (config.name == "tapas") {
                 sh "npm publish"
