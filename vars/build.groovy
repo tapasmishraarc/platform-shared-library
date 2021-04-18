@@ -1,4 +1,4 @@
-def call(Straing name, script){
+def call(String name, script){
   readProperties "${name}", script
   if(script.env.techStack == "node")
   {
