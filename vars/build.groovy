@@ -1,5 +1,5 @@
 def call(script){
-  if(scrit.env.techStack = "node")
+  if(script.env.techStack = "node")
   {
     nodeBuild name: "xxx"
   }
