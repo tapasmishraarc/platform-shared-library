@@ -4,7 +4,7 @@ def call(Map config=[:],script) {
     echo "Hello ${config.name}"
    
     node {
-        git url: "https://github.com/tapasmishraarc/sample-nodejs"
+        git url: script.env.GIT_SOURCE_URL
         
         stage("Install") {
             sh "npm install"
