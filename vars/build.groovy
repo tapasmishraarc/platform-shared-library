@@ -6,7 +6,7 @@ def call(String name, script){
   }
   if(script.env.techStack == "java")
   {
-    nodeBuild script
+    mavenBuild script
   }
  // script.env.path = 
 }
