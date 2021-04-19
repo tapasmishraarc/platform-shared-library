@@ -7,7 +7,7 @@ def call(String script) {
                    sh "java -version"
            }
            stage("Checkout Code") {
-                   git branch: 'master',
+                   git branch: 'main',
                        url: script.env.GIT_SOURCE_URL
            }
 	   stage("Cleaning workspace") {
