@@ -11,7 +11,7 @@ def call(script) {
          
              stage('Docker Build') {
                    echo "In docker build stage"
-                  sh 'docker build -t admcoeacr.azurecr.io/kubeapp:latest .'
+                  sh 'docker build -t admcoeacr.azurecr.io/kubeapp:latest -f ../KubeApp/'
     }
     
              stage('Docker Push') 
