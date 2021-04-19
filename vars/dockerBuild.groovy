@@ -19,7 +19,7 @@ def call(script) {
          withCredentials([usernamePassword(credentialsId: 'ACR_cred', passwordVariable: 'pswrd', usernameVariable: 'user')]) {
                   // some block
                   echo "In docker push stage"
-                  sh "docker login -u ${env.user} -p ${env.passwordVariable}"
+                  sh "docker login -u ${env.user} -p ${env.pswrd}"
                   sh 'docker push admcoeacr.azurecr.io/kubeapp:latest'
               }
              }              
