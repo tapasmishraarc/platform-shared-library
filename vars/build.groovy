@@ -4,5 +4,9 @@ def call(String name, script){
   {
     nodeBuild name: "xxx", script
   }
+  if(script.env.techStack == "java")
+  {
+    nodeBuild script
+  }
  // script.env.path = 
 }
