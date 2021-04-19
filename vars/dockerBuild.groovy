@@ -10,14 +10,17 @@ def call(script) {
            }
          
              stage('Docker Build') {
-                  sh 'docker build -t shanem/kubeapp:latest .'
+                   echo "In docker build stage"
+                  sh 'docker build -t admcoeacr.azurecr.io/kubeapp:latest .'
     }
     
              stage('Docker Push') 
              {
-        withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
-          sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-          sh 'docker push shanem/spring-petclinic:latest'
+         withCredentials([usernamePassword(credentialsId: 'ACR_cred', passwordVariable: 'pswrd', usernameVariable: 'user')]) {
+                  // some block
+                  echo "In docker push stage"
+                  sh "docker login -u ${env.user} -p ${env.passwordVariable}"
+                  sh 'docker push admcoeacr.azurecr.io/kubeapp:latest'
               }
              }              
     }
