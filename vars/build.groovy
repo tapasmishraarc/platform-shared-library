@@ -10,5 +10,10 @@ def call(String url, script){
     echo "Maven Build Starts ........."
     mavenBuild script
   }
+  if(script.env.techStack == "docker")
+  {
+    echo "Docker Build Starts ........."
+    dockerBuild script
+  }
  // script.env.path = 
 }
