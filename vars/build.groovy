@@ -1,5 +1,5 @@
-def call(String name, script){
-  readProperties "${name}", script
+def call(String url, script){
+  readProperties "${url}", script
   echo "${script.env.techStack}"
   if(script.env.techStack == "node")
   {
