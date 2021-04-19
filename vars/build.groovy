@@ -6,6 +6,7 @@ def call(String name, script){
   }
   if(script.env.techStack == "java")
   {
+    echo "Maven Build Starts ........."
     mavenBuild script
   }
  // script.env.path = 
