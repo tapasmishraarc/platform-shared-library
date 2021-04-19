@@ -13,7 +13,7 @@ def call(script) {
 	   stage("Cleaning workspace") {
                    sh "mvn clean"
            }
-	   stage("Compling") {
+	   stage("Compiling") {
                    sh "mvn compile"
            }
 	   if(script.env.CODE_QUALITY == 'True'){
@@ -38,7 +38,7 @@ def call(script) {
              echo 'Security Testing'
          }
         }
-           stage("Packing Application") {
+           stage("Packaging Application") {
                    sh "mvn package -DskipTests"
            }
        }
