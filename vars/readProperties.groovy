@@ -3,6 +3,7 @@ def call(String repoUrl = 'url',script) {
   echo "REPO URL ----------------------"
   echo "${repoUrl}"
   def properties_file_path = "./properties.yml"
+  echo "${properties_file_path}"
   def property = readYaml file: properties_file_path
   script.env.APP_NAME = property.APP_NAME
   script.env.MS_NAME = property.MS_NAME
