@@ -5,6 +5,7 @@ def call(script) {
        node {
              
              stage("Checkout Code") {
+                   echo 'script.env.GIT_SOURCE_URL'
                   git url: script.env.GIT_SOURCE_URL
            }
          
