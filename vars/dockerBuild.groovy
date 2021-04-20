@@ -3,12 +3,7 @@ def call(script) {
       echo "Hello welcome to dockerBuild shared library"
    
        node {
-             
-             stage("Checkout Code") {
-                   echo script.env.GIT_SOURCE_URL
-                  git url: script.env.GIT_SOURCE_URL
-           }
-         
+
              stage('Docker Build') {
                    echo "In docker build stage"
                    sh "docker build -t  ${script.env.DOCKER_REGISTRY}/${script.env.DOCKER_REPO}:latest ."
