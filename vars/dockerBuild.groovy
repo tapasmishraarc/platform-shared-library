@@ -5,8 +5,7 @@ def call(script) {
        node {
              
              stage("Checkout Code") {
-                   git branch: 'master',
-                       url: 'https://github.com/lgoyal8497/KubeApp.git'
+                  git url: script.env.GIT_SOURCE_URL
            }
          
              stage('Docker Build') {
