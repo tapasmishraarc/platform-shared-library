@@ -9,6 +9,7 @@ def call(String repoUrl = 'url',script) {
   script.env.MS_NAME = property.MS_NAME
   script.env.BRANCH = property.BRANCH
   script.env.GIT_SOURCE_URL = property.GIT_SOURCE_URL
+  echo script.env.GIT_SOURCE_URL
   script.env.GIT_CREDENTIALS = property.GIT_CREDENTIALS
   script.env.SONAR_HOST_URL = property.SONAR_HOST_URL
   script.env.CODE_QUALITY = property.CODE_QUALITY
