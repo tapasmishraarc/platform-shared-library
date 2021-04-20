@@ -6,10 +6,7 @@ def call(script) {
                    sh "mvn --version"
                    sh "java -version"
            }
-           stage("Checkout Code") {
-                   git branch: 'master',
-                       url: script.env.GIT_SOURCE_URL
-           }
+         
 	   stage("Cleaning workspace") {
                    sh "mvn clean"
            }
