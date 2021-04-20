@@ -4,7 +4,7 @@ def call(Map config=[:],script) {
     echo "Hello ${config.name}"
    
     node {
-        git url: script.env.GIT_SOURCE_URL
+       // git url: script.env.GIT_SOURCE_URL
         
         stage("Install") {
             sh "npm install"
