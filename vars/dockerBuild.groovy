@@ -6,7 +6,7 @@ def call(script) {
 
              stage('Docker Build') {
                    echo "In docker build stage"
-                   sh "docker build -t  ${script.env.DOCKER_REGISTRY}/${script.env.DOCKER_REPO}:latest ."
+                   sh "docker build -t  ${script.env.DOCKER_REGISTRY}/${script.env.DOCKER_REPO}:latest -f ./Dockerfile"
     }
     
              stage('Docker Push') 
