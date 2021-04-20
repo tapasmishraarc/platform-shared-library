@@ -8,7 +8,7 @@ def call(String repoUrl = 'url',script) {
   script.env.APP_NAME = property.APP_NAME
   script.env.MS_NAME = property.MS_NAME
   script.env.BRANCH = property.BRANCH
-  script.env.GIT_SOURCE_URL = property.GIT_SOURCE_URL
+  script.env.GIT_SOURCE_URL = ${repoUrl}
   echo script.env.GIT_SOURCE_URL
   script.env.GIT_CREDENTIALS = property.GIT_CREDENTIALS
   script.env.SONAR_HOST_URL = property.SONAR_HOST_URL
