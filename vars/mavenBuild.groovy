@@ -1,32 +1,20 @@
 def call(script) {
       echo "Hello Vanshika welcome to MavenBuild shared library"
-   podTemplate(yaml """\
-        apiVersion: v1
-        kind: Pod
-        metadata:
-          labels:
-            some-label: some-label-value
-        spec:
-          containers:
-          - name: maven
-            image: maven:alpine
-            command:
-            - cat
-            tty: true
-          - name: busybox
-            image: busybox
-            command:
-            - cat
-            tty: true
-        """.stripIndent())
+	
+	podTemplate(label: label,
+  containers: [containerTemplate(name: 'maven', image: 'maven:alpine', ttyEnabled: true, command: -cat)]
+  )
+	{
        node {
 	   
 	  
            stage("Tools initialization") {
 		   container('maven')
 	       {
-                   sh "mvn --version"
-                   sh "java -version"
+		       stage('maven ini'){
+			   sh "mvn --version"
+			   sh "java -version"
+		       }
 	       }
 	       }
 	 /*      
@@ -69,3 +57,4 @@ def call(script) {
 	   */
        }
    }
+}
