@@ -2,7 +2,7 @@ def call(script) {
       echo "Hello Vanshika welcome to MavenBuild shared library"
 	def label = "kubernetes"
 	podTemplate(label: label,
-  containers: [containerTemplate(name: 'maven', image: 'maven:alpine', ttyEnabled: true, label: label)]
+  containers: [containerTemplate(name: 'maven', image: 'maven:alpine', ttyEnabled: true, label: label,command: 'cat')]
   )
 	{
        node(label) {
