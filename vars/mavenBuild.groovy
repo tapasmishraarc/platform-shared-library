@@ -1,12 +1,33 @@
 def call(script) {
       echo "Hello Vanshika welcome to MavenBuild shared library"
-   
+   podTemplate(yaml """\
+        apiVersion: v1
+        kind: Pod
+        metadata:
+          labels:
+            some-label: some-label-value
+        spec:
+          containers:
+          - name: maven
+            image: maven:alpine
+            command:
+            - cat
+            tty: true
+          - name: busybox
+            image: busybox
+            command:
+            - cat
+            tty: true
+        """.stripIndent())
        node {
+	   container('maven')
+	       {
            stage("Tools initialization") {
                    sh "mvn --version"
                    sh "java -version"
            }
-         stage("Checkout Code") {
+	       }
+       /*  stage("Checkout Code") {
                    git branch: 'master',
                        url: script.env.GIT_SOURCE_URL
            }
@@ -42,5 +63,6 @@ def call(script) {
            stage("Packaging Application") {
                    sh "mvn package -DskipTests"
            }
+	   */
        }
    }
