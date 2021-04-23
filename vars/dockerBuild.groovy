@@ -9,8 +9,8 @@ def call(script) {
 	{
        node(label) {
 	   
-	  container('docker')
-	       {
+	//  container('docker')
+	  //     {
              stage("Checkout Code") {
                    git branch: 'master',
                        url: script.env.GIT_SOURCE_URL
@@ -32,4 +32,4 @@ def call(script) {
     }
        }}
 
-}
+//}
