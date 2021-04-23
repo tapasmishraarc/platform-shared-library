@@ -9,35 +9,27 @@ def call(script) {
 	{
        node(label) {
 	   
-	  
-             stage("Checkout Code") {
-		   container('docker')
+	  container('docker')
 	       {
+             stage("Checkout Code") {
                    git branch: 'master',
                        url: script.env.GIT_SOURCE_URL
-	       }
            }
              stage('Docker Build') {
-		     container('docker')
-	       {
                    echo "In docker build stage"
                    sh "docker build -t  ${script.env.DOCKER_REGISTRY}/${script.env.DOCKER_REPO}:latest ."
-	       }
     }
     
              stage('Docker Push') 
              {
-		     container('docker')
-	       {
          withCredentials([usernamePassword(credentialsId: 'ACR_cred', passwordVariable: 'pswrd', usernameVariable: 'user')]) {
                   // some block
                   echo "In docker push stage"
                sh "docker login -u ${env.user} -p ${env.pswrd} ${script.env.DOCKER_REGISTRY} "
                sh "docker push ${script.env.DOCKER_REGISTRY}/${script.env.DOCKER_REPO}:latest"  
-	 }
               }
              }              
-    
+    }
        }}
 
 }
