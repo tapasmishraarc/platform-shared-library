@@ -1,10 +1,16 @@
 def call(script) {
       
-      echo "Hello welcome to dockerBuild shared library"
-   
-       node {
-
-        
+          echo "Hello Vanshika welcome to dockerBUild shared library"
+	def label = "Dockerkubernetes"
+	podTemplate(label: label,
+  containers: [containerTemplate(name: 'docker', image: 'docker:latest', ttyEnabled: true, command: 'cat')],
+  volumes: [hostPathVolume(hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock')]
+  )
+	{
+       node(label) {
+	   
+	  container('docker')
+	       {
              stage("Checkout Code") {
                    git branch: 'master',
                        url: script.env.GIT_SOURCE_URL
@@ -24,4 +30,6 @@ def call(script) {
               }
              }              
     }
-  }
+       }}
+
+}
