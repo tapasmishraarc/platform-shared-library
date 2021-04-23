@@ -6,23 +6,20 @@ def call(script) {
   )
 	{
        node(label) {
-	   
+	    container('maven')
+	       {
 	  
            stage("Tools initialization") {
-		   container('maven')
-	       {
+		  
 		       stage('maven ini'){
 			   sh "mvn --version"
 			   sh "java -version"
 		       }
 	       }
-	       }
-	 /*      
          stage("Checkout Code") {
                    git branch: 'master',
                        url: script.env.GIT_SOURCE_URL
            }
-
 	   stage("Cleaning workspace") {
                    sh "mvn clean"
            }
@@ -54,7 +51,6 @@ def call(script) {
            stage("Packaging Application") {
                    sh "mvn package -DskipTests"
            }
-	   */
        }
    }
-}
+	}}
